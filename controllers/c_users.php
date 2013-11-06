@@ -143,72 +143,7 @@ Process the login form
                 echo $this->template;
                                 
     }
-
-	public function edit_profile($status = NULL) {
-
-                #If there is no legitimate cookie, route to the homepage
-                if(!$this->user) {
-                        Router::redirect('/');
-                        return false;//status
-                }
-
-                #Call the view to edit the picture in the profile
-                $this->template->content = View::instance('v_users_edit_profile');
-                $this->template->title = 'Stay In Text!';
-
-                # Render the view
-                echo $this->template;
-	}
 	
-	public function p_edit_profile() {
-
-                # If "Delete photo" box was checked and no new image was submitted
-                # add placeholder images to $_POST array to overwrite existing image
-                if ((array_key_exists('delete_photo', $_POST)) && ($_FILES['profile_image']['name'] == "")) {
-                        $_POST['profile_image'] = "placeholder.png";
-                        $_POST['thumb_image'] = "placeholder_thumb.png";
-                        $_POST['alt_text'] = "Placeholder profile image";
-                }
-                
-                # If an image was submitted, upload to server,
-                # resize and save profile (250x250) and thumb (75x75) versions,
-                # and add the filenames to the $_POST array
-                if ($_FILES['profile_image']['name'] != "") {
-                
-                        # Upload submitted image to server
-                        $profile_image = Upload::upload($_FILES, "/uploads/", array("jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG"), "profile_image_".$this->user->user_id);
-                        
-                        # Instantiate new image object using uploaded file
-                        $imgObj = new Image(APP_PATH."uploads/".$profile_image);
-                        
-                        # Resize and save profile version of image
-                         $imgObj->resize(250,250,"crop");
-                        $imgObj->save_image(APP_PATH."uploads/".$profile_image, 100);
-                        
-                        # Resize and save thumbnail version of image
-                        $file_parts = pathinfo($profile_image);
-                        $thumb_image = "thumb_image_".$this->user->user_id.".".$file_parts['extension'];
-                        $imgObj->resize(75,75,"crop");
-                        $imgObj->save_image(APP_PATH."uploads/".$thumb_image, 100);
-
-                        # Add image filenames and alt text to POST array
-                        $_POST['profile_image'] = $profile_image;
-                        $_POST['thumb_image'] = $thumb_image;
-                        $_POST['alt_text'] = "Profile image for ".$this->user->first_name;
-
-                }
-                
-                # (If "Delete photo" is unchecked and no new image was submitted,
-                # do nothing -- image fields in DB remains as-is)
-
-                # Remove "Delete photo" checkbox from $_POST array if it exists
-                if (array_key_exists('delete_photo', $_POST)) {
-                        unset($_POST['delete_photo']);
-                }
-                
-                # Update DB with new profile information (including empty fields)
-                DB::instance(DB_NAME)->update("users", $_POST, "WHERE token = '".$this->user->token."'");                
-    }
 	
 } # end of the class
 ?>

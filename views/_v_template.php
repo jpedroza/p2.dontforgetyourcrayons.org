@@ -15,6 +15,7 @@
 </head>
 
 <body>        
+		<!-- show the title and header with a link to go to the home page, as per requirements -->
 		<h1><a href="/"><img src="/Logo.png" alt="Stay In Text Logo">Stay In Text</a></h1> 
         <nav>
                 <menu>
