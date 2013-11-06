@@ -1,15 +1,11 @@
-<p>
-	Hello World! You have successfully spawned a new application.
-</p>
+<?php if($user): ?>
 
-<p>
-	This message is being triggered via the c_index.php controller, within the index() method.
-</p>
-
-<p>
-Way to go Ali Dean!
-</p>
-
-<p>
-	<strong>Since everything is in working order, you should now delete <?php echo APP_PATH?>diagnostics.php</strong>
-</p>
+		<pre>
+			<?php
+				print_r($user);
+			?>	
+		</pre>
+        What's Up <?=$user->first_name;?>
+<?php else: ?>
+        Our Casa, is your Casa. So kick your shoes off. Sign up or Log in, your choice.
+<?php endif; ?>
