@@ -1,4 +1,4 @@
-<?php if(isset($user_id)): ?> 
+<?php if(isset($user)): ?> 
         <h1>This is the profile for <?=$user->first_name?></h1>
 <?php else: ?>
         <h1>Log back in, something went wrong.</h1>
