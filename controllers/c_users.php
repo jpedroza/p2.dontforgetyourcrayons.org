@@ -29,12 +29,7 @@ class users_controller extends base_controller {
 Process the sign up form
 -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
-         
-		 # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
-		 echo "<pre>";
-		 print_r($_POST);
-		 echo "</pre>";
-		 
+         		 
 		 # Attach on the timestamp using the library
 		 $_POST['created'] = Time::now();
 		 
@@ -44,8 +39,13 @@ Process the sign up form
 		 # Create a hashed token
          $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
 		 
+		 # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
+		 echo "<pre>";
+		 print_r($_POST);
+		 echo "</pre>";
 		 
 		 # Insert the new user
+		 # Insert function already cleans up user input read from a form
          DB::instance(DB_NAME)->insert_row('users', $_POST);
 		 
 		 # Send them to the login page
