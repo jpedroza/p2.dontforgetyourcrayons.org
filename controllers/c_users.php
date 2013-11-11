@@ -138,7 +138,9 @@ Process the login form
                 
                 # Set up the View
                 $this->template->content = View::instance('v_users_profile');
-                $this->template->title = "Profile";
+                
+				# Edited the title to be passed off to the webpage 
+				$this->template->title = "Edit your profile below";
                                 
                 # Pass the data to the View
                 $this->template->content->user_name = $user_name;
