@@ -17,10 +17,10 @@ class users_controller extends base_controller {
     public function signup() {
        
        # Set up the view
-       $this->template->content = View::instance('v_users_signup');
-       
-       # Render the view
-       echo $this->template;
+       $this->template->content = View::instance('v_users_signup');//will add the new fields as shown below
+                                                                   //bio, location, timezone
+       # Render the view                                           //make sure to check the db for matching
+       echo $this->template;                                       //fields
        
     }
     
@@ -30,6 +30,10 @@ Process the sign up form
 -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
          
+		 # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
+		 echo "<pre>";
+		 print_r($_POST);
+		 echo "</pre>";
 		 
 		 # Attach on the timestamp using the library
 		 $_POST['created'] = Time::now();
