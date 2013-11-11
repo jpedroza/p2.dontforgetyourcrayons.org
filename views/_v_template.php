@@ -25,7 +25,7 @@
                                 <p><a href='/posts/add'><button type="button">Add Post</button></a></p>
                                 <p><a href='/posts/'><button type="button">View Posts</button></a></p>
 								<!-- added update my profile button -->
-								<p><a href='/posts/profile'><button type="button">Update My Profile</button></a></p>
+								<p><a href='/users/profile'><button type="button">Update My Profile</button></a></p>
                                 <p><a href='/posts/users'><button type="button">Follow Users</button></a></p>
                                 <p><a href='/users/logout'><button type="button">Logout</button></a></p>
                         <?php else: ?>
