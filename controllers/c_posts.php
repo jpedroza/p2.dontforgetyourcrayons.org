@@ -34,15 +34,26 @@ class posts_controller extends base_controller {
         Process new posts
         -------------------------------------------------------------------------------------------------*/
         public function p_add() {
-                
-                $_POST['user_id'] = $this->user->user_id;
-                $_POST['created'] = Time::now();
-                $_POST['modified'] = Time::now();
-                
-                DB::instance(DB_NAME)->insert('posts',$_POST);
-                
-                Router::redirect('/posts/');
-                
+                if((trim($_POST[content])=="")){
+					
+					# remove the blank field from the $_POST array
+					unset($_POST[content]);
+					
+					# send back to add form
+					Router::redirect('/posts/add');
+					
+				} else {	
+					
+						# Send them to the login page
+						Router::redirect('/users/profile');
+					$_POST['user_id'] = $this->user->user_id;
+					$_POST['created'] = Time::now();
+					$_POST['modified'] = Time::now();
+					
+					DB::instance(DB_NAME)->insert('posts',$_POST);
+					
+					Router::redirect('/posts/');
+                }
         }
         
         
