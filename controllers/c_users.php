@@ -158,6 +158,12 @@ Process the login form
 				echo "<pre>";
 				print_r($_POST);
 				echo "</pre>";
+				
+				# Commit changes to the database
+				DB::instance(DB_NAME)->update('users',$_POST, 'WHERE user_id ='. $this->user->user_id);
+				
+				# Send them to the login page
+				Router::redirect('/users/login');
 	}	
 	
 } # end of the class
