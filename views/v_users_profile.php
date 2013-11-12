@@ -4,7 +4,7 @@
         <h1>Log back in, something went wrong.</h1>
 <?php endif; ?>
 
-<form method='POST' action='/users/p_signup'>
+<form method='POST' action='/users/p_editprofile'>
 
         First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br>
         Last Name <input type='text' name='last_name' value="<?=$user->last_name?>"/><br>
