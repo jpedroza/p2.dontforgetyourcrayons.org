@@ -6,14 +6,12 @@
 
 <form method='POST' action='/users/p_signup'>
 
-        First Name <input type='text' name='first_name' /><br>
-        Last Name <input type='text' name='last_name' /><br>
-        Email <input type='text' name='email' /><br>
-        Password <input type='password' name='password' /><br>
-		<!-- added new fields short bio, time zone, and location -->
-		Timezone <input type='text' name='timezone' /><br>
-		Location <input type='text' name='location' /><br>
-		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou"></textarea><br>
+        First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br>
+        Last Name <input type='text' name='last_name' value="<?=$user->last_name?>"/><br>
+        <!-- added new fields short bio, time zone, and location -->
+		Timezone <input type='text' name='timezone' value="<?=$user->timezone?>"/><br>
+		Location <input type='text' name='location' value="<?=$user->location?>"/><br>
+		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou" value="<?=$user->first_name?>"></textarea><br>
         <input type='submit' value='Update My Profile' />
         
 
