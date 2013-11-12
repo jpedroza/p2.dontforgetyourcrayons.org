@@ -13,6 +13,9 @@
 		Location <input type='text' name='location' value="<?=$user->location?>"/><br>
 		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou" ><?=$user->aboutyou?></textarea><br>
         <input type='submit' value='Save Changes to my Profile' />
+		
+		<a href="/"><button type="button">Cancel Changes</button></a>
+		<h3>If you put in blank space for any field, the changes will not be entered</h3>
         
 
 </form>
