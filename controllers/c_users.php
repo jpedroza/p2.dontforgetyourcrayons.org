@@ -29,28 +29,42 @@ class users_controller extends base_controller {
 Process the sign up form
 -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
-         		 
-		 # Attach on the timestamp using the library
-		 $_POST['created'] = Time::now();
-		 
-		 # Using Sha1l apply the one-way hash to a salt in the config.php
-		 $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
-		 
-		 # Create a hashed token
-         $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
-		 
-		 # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
-		 echo "<pre>";
-		 print_r($_POST);
-		 echo "</pre>";
-		 
-		 # Insert the new user
-		 # Insert function already cleans up user input read from a form
-         DB::instance(DB_NAME)->insert_row('users', $_POST);
-		 
-		 # Send them to the login page
-         Router::redirect('/users/login');
-		 
+	
+		if((trim($_POST[first_name])=="") || (trim($_POST[last_name])=="") || (trim($_POST[timezone])=="") || (trim($_POST[location])=="") || (trim($_POST[aboutyou])=="") || (trim($_POST[password])=="") || (trim($_POST[email])=="") ){
+			# remove the blank field from the $_POST array
+			unset($_POST[email]);
+			unset($_POST[password]);
+			unset($_POST[first_name]);
+			unset($_POST[last_name]);
+			unset($_POST[timezone]);
+			unset($_POST[location]);
+			unset($_POST[aboutyou]);
+			
+			# Send them to the login page
+			Router::redirect('/users/signup');
+			
+		} else {
+			 # Attach on the timestamp using the library
+			 $_POST['created'] = Time::now();
+			 
+			 # Using Sha1l apply the one-way hash to a salt in the config.php
+			 $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+			 
+			 # Create a hashed token
+			 $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+			 
+			 # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
+			 echo "<pre>";
+			 print_r($_POST);
+			 echo "</pre>";
+			 
+			 # Insert the new user
+			 # Insert function already cleans up user input read from a form
+			 DB::instance(DB_NAME)->insert_row('users', $_POST);
+			 
+			 # Send them to the login page
+			 Router::redirect('/users/login');
+		} 
         
     }
 
@@ -154,10 +168,6 @@ Process the login form
         -------------------------------------------------------------------------------------------------*/	
 	public function p_editprofile($user_name = NULL) { # maybe change $user_name
 				# take all the contents of the $_POST and update the db
-				
-				echo "<pre>";
-				print_r($_POST);
-				echo "</pre>";
 				
 				# if fields are blank remove them from the $_POST Array
 				if((trim($_POST[first_name])=="") || (trim($_POST[last_name])=="") || (trim($_POST[timezone])=="") || (trim($_POST[location])=="") || (trim($_POST[aboutyou])=="") ){
