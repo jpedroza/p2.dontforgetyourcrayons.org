@@ -127,9 +127,9 @@ Process the login form
     }
 
         /*-------------------------------------------------------------------------------------------------
-        
+        The profile method
         -------------------------------------------------------------------------------------------------*/
-    public function profile($user_name = NULL) {
+    public function profile($user_name = NULL) { # maybe change $user_name
                 
                 # Only logged in users are allowed...
                 if(!$this->user) {
@@ -149,7 +149,16 @@ Process the login form
                 echo $this->template;
                                 
     }
-	
+        /*-------------------------------------------------------------------------------------------------
+        This method processes the edits from the v_users_profile.php
+        -------------------------------------------------------------------------------------------------*/	
+	public function p_editprofile($user_name = NULL) { # maybe change $user_name
+				# take all the contents of the $_POST and update the db
+				
+				echo "<pre>";
+				print_r($_POST);
+				echo "</pre>";
+	}	
 	
 } # end of the class
 ?>
