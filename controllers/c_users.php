@@ -106,6 +106,17 @@ Process the login form
                         # Don't echo anything to the page before setting this cookie!
                         setcookie('token',$token, strtotime('+1 year'), '/');
                         
+						# Get current time to stuff in a data array
+						$tm = Time::now();
+						$data = Array(
+							'last_login' => $tm
+						);
+						
+						$token = "'" . $token ."'";
+						
+						# Update the time logged in
+						DB::instance(DB_NAME)->update('users', $data, 'WHERE token ='. $token);
+						
                         # Send them to the homepage
                         Router::redirect('/');
                 }
@@ -183,7 +194,8 @@ Process the login form
 					Router::redirect('/users/profile');
 				} else {
 				
-				
+					# Update modified time
+					$_POST[modified] = Time::now();
 				
 					# Commit changes to the database
 					DB::instance(DB_NAME)->update('users',$_POST, 'WHERE user_id ='. $this->user->user_id);
