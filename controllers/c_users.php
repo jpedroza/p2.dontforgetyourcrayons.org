@@ -163,7 +163,7 @@ Process the login form
 				DB::instance(DB_NAME)->update('users',$_POST, 'WHERE user_id ='. $this->user->user_id);
 				
 				# Send them to the login page
-				Router::redirect('/users/login');
+				Router::redirect('/');
 	}	
 	
 } # end of the class
