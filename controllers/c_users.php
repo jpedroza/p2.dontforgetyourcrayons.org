@@ -158,7 +158,32 @@ Process the login form
 				echo "<pre>";
 				print_r($_POST);
 				echo "</pre>";
+				/*
+				# if fields are blank remove them from the $_POST Array
+				if empty($_POST[first_name]) {
+					unset($_POST[first_name]);
+				}
 				
+				# if fields are blank remove them from the $_POST Array
+				if empty($_POST[last_name]) {
+					unset($_POST[last_name]);
+				}
+				
+				# if fields are blank remove them from the $_POST Array
+				if empty($_POST[timezone]) {
+					unset($_POST[timezone]);
+				}
+				
+				# if fields are blank remove them from the $_POST Array
+				if empty($_POST[location]) {
+					unset($_POST[location]);
+				}
+				
+				# if fields are blank remove them from the $_POST Array
+				if empty($_POST[aboutyou]) {
+					unset($_POST[aboutyou]);
+				}
+				*/
 				# Commit changes to the database
 				DB::instance(DB_NAME)->update('users',$_POST, 'WHERE user_id ='. $this->user->user_id);
 				
