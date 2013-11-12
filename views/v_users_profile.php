@@ -11,7 +11,7 @@
         <!-- added new fields short bio, time zone, and location -->
 		Timezone <input type='text' name='timezone' value="<?=$user->timezone?>"/><br>
 		Location <input type='text' name='location' value="<?=$user->location?>"/><br>
-		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou" value="<?=$user->aboutyou?>"></textarea><br>
+		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou" ><?=$user->aboutyou?></textarea><br>
         <input type='submit' value='Update My Profile' />
         
 
