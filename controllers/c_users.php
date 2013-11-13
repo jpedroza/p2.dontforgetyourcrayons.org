@@ -60,6 +60,12 @@ Process the sign up form
                          # Insert the new user
                          # Insert function already cleans up user input read from a form
                          DB::instance(DB_NAME)->insert_row('users', $_POST);
+						 
+						# Prepare the email message 
+						$emailbody = "<a href='http://p2.dontforgetyourcrayons.org/allsignedup.html'>Click Here To Confirm Your Sign-Up</a>";
+			 
+						# Email
+						Email::send('mr.john.pedroza@gmail.com', 'notification@dontforgetyourcrayons.org', 'test', $emailbody, true, '');
                         
                          # Send them to the login page
                          Router::redirect('/users/login');
