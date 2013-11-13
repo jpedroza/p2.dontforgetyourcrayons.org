@@ -53,9 +53,6 @@ Process the sign up form
                          $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
                         
                          # Add a quick view to see what is inside the $_POST - what was passed back from the form v_users_signup
-                         echo "<pre>";
-                         print_r($_POST);
-                         echo "</pre>";
                         
                          # Insert the new user
                          # Insert function already cleans up user input read from a form
