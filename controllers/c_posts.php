@@ -44,8 +44,7 @@ class posts_controller extends base_controller {
 					
 				} else {	
 					
-						# Send them to the login page
-						Router::redirect('/users/profile');
+						
 					$_POST['user_id'] = $this->user->user_id;
 					$_POST['created'] = Time::now();
 					$_POST['modified'] = Time::now();

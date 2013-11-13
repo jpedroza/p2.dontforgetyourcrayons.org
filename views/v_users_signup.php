@@ -2,6 +2,7 @@
 
 <form method='POST' action='/users/p_signup'>
 		<h3>All fields must be filled in to start an account!</h3>
+		Photo <img src="/uploads/pic.png" /><br>
         First Name <input type='text' name='first_name' /><br>
         Last Name <input type='text' name='last_name' /><br>
         Email <input type='text' name='email' /><br>

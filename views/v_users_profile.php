@@ -3,9 +3,11 @@
 <?php else: ?>
         <h1>Log back in, something went wrong.</h1>
 <?php endif; ?>
+<?php $photostr ="/uploads/pic.png" ?>   <!-- $photostr = "/uploads/" . <?=$user->photo?> . ".png"; <?=$photostr?> -->
 
 <form method='POST' action='/users/p_editprofile'>
 
+		Picture <img src=<?=$photostr?> /><br>
         First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br>
         Last Name <input type='text' name='last_name' value="<?=$user->last_name?>"/><br>
         <!-- added new fields short bio, time zone, and location -->
