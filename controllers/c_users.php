@@ -183,7 +183,45 @@ This method processes the edits from the v_users_profile.php
 -------------------------------------------------------------------------------------------------*/        
         public function p_editprofile($user_name = NULL) { # maybe change $user_name
                                 # take all the contents of the $_POST and update the db
-                                
+						
+						echo "<pre>";
+						print_r($_FILES);
+						echo "</pre>";
+						
+						$photofile = Upload::upload($_FILES, "/uploads/", array("jpg", "jpeg", "gif", "png"), "foobar");
+						echo "APP Path is " . APP_PATH . "uploads/$photofile";
+						#$imgObj = new Image(APP_PATH . "uploads/" . $photofile);
+						/*----------------------------				
+										echo "<pre>";
+										print_r($_POST);
+										echo "</pre>";
+								
+								# for photo check to see if a file was selected for upload to begin with
+								#if ((trim($_POST[photo])=="")) {
+								#	unset($_POST[photo]);
+								#	Router::redirect('/blankphotpath.html');									
+									
+								#} else {
+									# Upload the file
+									$photofile = Upload::upload($_FILES, "/uploads/", array("jpg", "jpeg", "gif", "png"), "photo-" . $this->user->user_id);
+									
+									
+									
+									# make a new image object
+									$imgObj = new Image(APP_PATH . "uploads/" . $photofile);
+									
+									# Resize and save profile version of image
+									$imgObj->resize(250,250,"crop");
+									
+									echo "just before app path";
+									
+									#$imgObj->save_image(APP_PATH . "uploads/" . $photofile, 100);
+									
+									Router::redirect('/uploadedimage.html');
+								#}
+								
+
+									
                                 # if fields are blank remove them from the $_POST Array
                                 if((trim($_POST[first_name])=="") || (trim($_POST[last_name])=="") || (trim($_POST[timezone])=="") || (trim($_POST[location])=="") || (trim($_POST[aboutyou])=="") ){
                                         
@@ -204,9 +242,13 @@ This method processes the edits from the v_users_profile.php
                                         # Commit changes to the database
                                         DB::instance(DB_NAME)->update('users',$_POST, 'WHERE user_id ='. $this->user->user_id);
                                         
+
+										
                                         # Send them to the login page
-                                        Router::redirect('/');
-        }                        }
+                                        Router::redirect('/hello.html');
+								}                
+        */   //-------------------------------------------
+		}
         
 } # end of the class
 ?>

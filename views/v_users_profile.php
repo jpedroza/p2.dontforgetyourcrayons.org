@@ -3,17 +3,23 @@
 <?php else: ?>
         <h1>Log back in, something went wrong.</h1>
 <?php endif; ?>
-<?php $photostr ="/uploads/pic.png" ?>   <!-- $photostr = "/uploads/" . <?=$user->photo?> . ".png"; <?=$photostr?> -->
+<?php $photostr ="/uploads/rickroll.png" ?>   <!-- $photostr = "/uploads/" . <?=$user->photo?> . ".png"; <?=$photostr?> -->
 
-<form method='POST' action='/users/p_editprofile'>
+<form method='POST' enctype="multipart/form-data" action='/users/p_editprofile'>
 
-		Picture <img src=<?=$photostr?> /><br>
-        First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br>
-        Last Name <input type='text' name='last_name' value="<?=$user->last_name?>"/><br>
+		<img src=<?=$photostr?> /><br>
+		<!-- show the current photo or threaten with "Rick Roll" -->
+		Upload a new Picture in png format<br />
+		<!-- added a file to store the path to the uploaded photo -->
+		<input type='file' name='photo' id='photo'/><br />
+        First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br />
+        Last Name <input type='text' name='last_name' value="<?=$user->last_name?>"/><br />
         <!-- added new fields short bio, time zone, and location -->
-		Timezone <input type='text' name='timezone' value="<?=$user->timezone?>"/><br>
-		Location <input type='text' name='location' value="<?=$user->location?>"/><br>
-		Tell Us A Few Words About Yourself <textarea rows="5" cols="70" name="aboutyou" ><?=$user->aboutyou?></textarea><br>
+		Timezone <input type='text' name='timezone' value="<?=$user->timezone?>"/><br />
+		Location <input type='text' name='location' value="<?=$user->location?>"/><br />
+		Tell Us A Few Words About Yourself <br />
+		
+		<textarea rows="5" cols="70" name="aboutyou" ><?=$user->aboutyou?></textarea><br />
         <input type='submit' value='Save Changes to my Profile' />
 		
 		<a href="/"><button type="button">Cancel Changes</button></a>
