@@ -183,22 +183,26 @@ This method processes the edits from the v_users_profile.php
 -------------------------------------------------------------------------------------------------*/        
         public function p_editprofile($user_name = NULL) { # maybe change $user_name
 								# for photo check to see if a file was selected for upload
-								if (($_FILES[photo][name]) != "" ) {
+								if (($_FILES['photo']['name']) != "" ) {
 										
 										# Upload the profile photo for the user into the uploads folder
 										$photofile = Upload::upload($_FILES, "/uploads/", array("jpg", "jpeg", "gif", "png"), "photo-" . $this->user->user_id);
 										
 										# make a new image object
 										$imgObj = new Image(APP_PATH . "uploads/" . $photofile);
-										
+
 										# Resize and save profile version of image
 										$imgObj->resize(250,250,"crop");
 										
-										#not enough time to figure out why the save is crashing
+										#not enough time to figure out why the save is crashing										
+										# Another resize to try out
+										#$imgObj->resize(200,200);
+										# Display the resized image
+										# $imgObj->display();
 										#$fullpath = APP_PATH . "uploads/" . $photofile;
+										#$imgObj->save_image($fullpath, 100);
 										#echo "the path is " . $fullpath;
 										#$this->$imgObj->save_image($fullpath, 100);
-									
 										#echo "APP Path is " . APP_PATH . "uploads/$photofile";
 										
 										# prepare to update the new file name of the profile picture in the database
