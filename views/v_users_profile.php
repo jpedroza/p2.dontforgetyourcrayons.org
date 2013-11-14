@@ -3,13 +3,15 @@
 <?php else: ?>
         <h1>Log back in, something went wrong.</h1>
 <?php endif; ?>
-<?php $photostr ="/uploads/rickroll.png" ?>   <!-- $photostr = "/uploads/" . <?=$user->photo?> . ".png"; <?=$photostr?> -->
+<?php $photostr ="/uploads/" . $user->photo ?>
+
+
 
 <form method='POST' enctype="multipart/form-data" action='/users/p_editprofile'>
 
 		<img src=<?=$photostr?> /><br>
-		<!-- show the current photo or threaten with "Rick Roll" -->
-		Upload a new Picture in png format<br />
+		<!-- show the current photo or threaten with "Rick Roll"--way too harsh!!! -->
+		Upload a new Picture<br />
 		<!-- added a file to store the path to the uploaded photo -->
 		<input type='file' name='photo' id='photo'/><br />
         First Name <input type='text' name='first_name' value="<?=$user->first_name?>" /><br />
