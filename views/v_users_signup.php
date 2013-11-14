@@ -6,7 +6,7 @@
 		
 		<!-- Added this line to show the dafault Simpson png before the db default for the photo field just puts in the default image -->  
 		Photo <img src="/uploads/pic.png" /><br>
-		*once you are signed up, you can edit your profile and upload a better png photo<br /> <br />
+		*once you are signed up, you can edit your profile and upload a better photo<br /> <br />
         First Name <input type='text' name='first_name' /><br />
         Last Name <input type='text' name='last_name' /><br />
         Email <input type='text' name='email' /><br />

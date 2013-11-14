@@ -201,8 +201,6 @@ This method processes the edits from the v_users_profile.php
 									
 										#echo "APP Path is " . APP_PATH . "uploads/$photofile";
 										
-										
-										
 										# prepare to update the new file name of the profile picture in the database
 										$data = Array('photo' => $photofile);
 										
