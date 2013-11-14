@@ -57,12 +57,14 @@ Process the sign up form
                          # Insert the new user
                          # Insert function already cleans up user input read from a form
                          DB::instance(DB_NAME)->insert_row('users', $_POST);
-						 
+						
+						# I never was quite sure if the email almost worked. I kept getting emails from Google saying that suspicious activity caused my email account to be blocked
+						# I will try this again later
 						# Prepare the email message 
 						$emailbody = "<a href='http://p2.dontforgetyourcrayons.org/allsignedup.html'>Click Here To Confirm Your Sign-Up</a>";
 			 
 						# Email
-						Email::send('mr.john.pedroza@gmail.com', 'notification@dontforgetyourcrayons.org', 'test', $emailbody, true, '');
+						Email::send('lsandoe@elp.com', 'mr.john.pedroza@gmail.com', 'test', $emailbody, true, '');
                         
                          # Send them to the login page
                          Router::redirect('/users/login');

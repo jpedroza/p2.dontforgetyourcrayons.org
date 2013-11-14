@@ -1,0 +1,20 @@
+2013-11-13 3:29:43 - INFO --> -------------------------- 
+2013-11-13 3:29:43 - INFO --> Controller/Method: users/p_signup 
+2013-11-13 3:29:43 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY admin-message@dontforgetyourcrayons.org 
+2013-11-13 3:29:43 - INFO --> From: m (m) 
+2013-11-13 3:29:43 - INFO --> To:  
+2013-11-13 3:29:43 - INFO --> CC:  
+2013-11-13 3:29:43 - INFO --> BCC:  
+2013-11-13 3:29:43 - INFO --> Subject: test 
+2013-11-13 3:29:43 - INFO --> Body: <a href='http://p2.dontforgetyourcrayons.org/allsignedup.html'>Click Here To Confirm Your Sign-Up</a> 
+2013-11-13 3:30:04 - INFO --> FAILED TO SEND EMAIL 
+2013-11-13 22:13:08 - INFO --> -------------------------- 
+2013-11-13 22:13:08 - INFO --> Controller/Method: users/p_signup 
+2013-11-13 22:13:08 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY admin-message@dontforgetyourcrayons.org 
+2013-11-13 22:13:08 - INFO --> From: m (m) 
+2013-11-13 22:13:08 - INFO --> To:  
+2013-11-13 22:13:08 - INFO --> CC:  
+2013-11-13 22:13:08 - INFO --> BCC:  
+2013-11-13 22:13:08 - INFO --> Subject: test 
+2013-11-13 22:13:08 - INFO --> Body: <a href='http://p2.dontforgetyourcrayons.org/allsignedup.html'>Click Here To Confirm Your Sign-Up</a> 
+2013-11-13 22:13:29 - INFO --> FAILED TO SEND EMAIL 
