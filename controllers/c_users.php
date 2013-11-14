@@ -193,9 +193,13 @@ This method processes the edits from the v_users_profile.php
 										
 										# Resize and save profile version of image
 										$imgObj->resize(250,250,"crop");
-										#$imgObj->save_image(APP_PATH . "uploads/" . $photofile, 100);
+										
+										#not enough time to figure out why the save is crashing
+										#$fullpath = APP_PATH . "uploads/" . $photofile;
+										#echo "the path is " . $fullpath;
+										#$this->$imgObj->save_image($fullpath, 100);
 									
-										echo "APP Path is " . APP_PATH . "uploads/$photofile";
+										#echo "APP Path is " . APP_PATH . "uploads/$photofile";
 										
 										
 										
