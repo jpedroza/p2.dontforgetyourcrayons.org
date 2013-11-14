@@ -16,21 +16,21 @@
 
 <body>        
 		<!-- show the title and header with a link to go to the home page, as per requirements -->
-		<h1><a href="/"><img src="/Logo.png" alt="Stay In Text Logo">Stay In Text</a></h1> 
+		<h1><a href="/"><img src="/Logo.png" alt="Stay In Text Logo"><img src="/banner.png" alt="Stay In Text Banner"></a></h1> 
         <nav>
                 <menu>
-                                <p><a href='/'><button type="button">Home</button></a></p>
+                                <li><a href='/'><button type="button">Home</button></a></li>
                                 
                         <?php if($user): ?>
-                                <p><a href='/posts/add'><button type="button">Add Post</button></a></p>
-                                <p><a href='/posts/'><button type="button">View Posts</button></a></p>
+                                <li><a href='/posts/add'><button type="button">Add Post</button></a></li>
+                                <li><a href='/posts/'><button type="button">View Posts</button></a></li>
 								<!-- added update my profile button -->
-								<p><a href='/users/profile'><button type="button">Update My Profile</button></a></p>
-                                <p><a href='/posts/users'><button type="button">Follow Users</button></a></p>
-                                <p><a href='/users/logout'><button type="button">Logout</button></a></p>
+								<li><a href='/users/profile'><button type="button">Update My Profile</button></a></li>
+                                <li><a href='/posts/users'><button type="button">Follow Users</button></a></li>
+                                <li><a href='/users/logout'><button type="button">Logout</button></a></li>
                         <?php else: ?>
-                                <p><a href='/users/signup'><button type="button">Sign Up</button></a></p>
-								<p><a href='/users/login'><button type="button">Log In</button></a></p>
+                                <li><a href='/users/signup'><button type="button">Sign Up</button></a></li>
+								<li><a href='/users/login'><button type="button">Log In</button></a></li>
                         <?php endif; ?>
                 </menu>
         </nav>
