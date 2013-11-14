@@ -12,7 +12,7 @@ body {
 		font-size: 16px;
 }
 
-body nav menu li a button, body form textarea, body form input, body form a button, body form button, body form  label, body strong {
+body nav menu li a button, body form textarea, body form input, body form a button, body form button, body form  label, body strong, body p {
 		font-family: 'Arial';
 		font-size: 18px;
 }
@@ -28,6 +28,8 @@ li {
 
 li.features {
 		display: block;
+		font-family: 'Arial';
+		font-size: 18px;
 }
 
 
