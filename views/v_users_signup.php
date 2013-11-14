@@ -2,7 +2,7 @@
 
 <form method='POST' action='/users/p_signup'>
 		<h3>We are glad you could take time out of your busy schedule to Join US.</h3>
-		<h4>All fields must be filled in to start an account!</h4>
+		<h3>All fields must be filled in to start an account!</h3>
 		
 		<!-- Added this line to show the dafault Simpson png before the db default for the photo field just puts in the default image -->  
 		<label>Photo</label> <img src="/uploads/pic.png" /><br>
