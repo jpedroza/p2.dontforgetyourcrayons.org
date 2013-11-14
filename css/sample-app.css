@@ -12,6 +12,11 @@ body {
 		font-size: 16px;
 }
 
+body nav menu li a button, body form textarea, body form input, body form a button, body form button, body form  label, body strong {
+		font-family: 'Arial';
+		font-size: 18px;
+}
+
 menu {
         margin: 0;
         padding: 0;
@@ -25,8 +30,5 @@ li.features {
 		display: block;
 }
 
-body nav menu li a button, body form textarea, body form input, body form a button {
-		font-family: 'Arial';
-		font-size: 18px;
-}
+
 
